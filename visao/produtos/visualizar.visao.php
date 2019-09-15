@@ -7,9 +7,9 @@
     </div>
     <div class="preed">
         <h2 style="color: orange"><?= $produto["nome"] ?></h2>
-        <h3>(Cod.)</h3>
-        <h2 class="pre"><?= $produto["preco"] ?></h2>
-        <h3>ou 3x de R$16,64 sem juros</h3>
+        <h3>(Cod.)<?= $produto["id_produto"] ?></h3>
+        <h3> Preço:</h3><h2 class="pre"><?= $produto["preco"] ?></h2>
+        
         <div class="columns medium-5">
 
             <select name="select">

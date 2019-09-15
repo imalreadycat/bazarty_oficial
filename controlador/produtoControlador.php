@@ -3,13 +3,11 @@ require_once "modelo/produtoModelo.php";
 require_once "modelo/categoriaModelo.php";
 require_once "servico/validacaoServico.php";
 require_once "servico/uploadServico.php";
-
 function index() {
     redirecionar("produto/listar");
 }
 function adicionar() {
     if (ehPost()) {
-
         $nome = $_POST["NomeProduto"];
         $CategoriaProduto = $_POST["CategoriaProduto"];
         $DescriProduto = $_POST["DescriProduto"];
@@ -48,7 +46,6 @@ function adicionar() {
            }else{              
            $msg = adicionarProduto($nome, $CategoriaProduto, $DescriProduto, $imagem, $PreProduto, $estoqueMin, $estoqueMax);
            echo $msg;
-
            }
   
     } else {
@@ -69,7 +66,6 @@ function deletar($id) {
     deletarProduto($id);
     redirecionar("produto/listar");
 }
-
 function editar ($cod){
     if(ehPost()){
        $nome = $_POST["NomeProduto"];
@@ -89,7 +85,6 @@ function editar ($cod){
     }
     
 }
-
 function comprar($idprod){
    // unset($_SESSION["carrinho"]); //p apagar sessão
     if(isset($_SESSION["carrinho"])) {
@@ -97,13 +92,10 @@ function comprar($idprod){
     } else {
         $produtos = array();
     }
-
     $produtos[] = $idprod;
     $_SESSION["carrinho"] = $produtos;
-
    redirecionar("car/mostrar"); 
 }
-
 function buscar(){
     if (ehPost()) {
         $nome = $_POST["nome"];
@@ -114,7 +106,6 @@ function buscar(){
         exibir('produtos/listar', $dados);
     }
 }
-
 /*function test(){
     if(isset($_SESSION["mensagem"])){
         $frase = $_SESSION["mensagem"];

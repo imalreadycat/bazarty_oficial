@@ -15,13 +15,42 @@
                <input type="radio" name="sexo" value="M">
               <br><br>
             <?php }else{ ?> 
-              Sexo: <label> Feminino </label>
-                <input type="radio" name="sexo" value="F">
-              <label> Masculino </label>
-               <input type="radio" name="sexo" value="M" checked="">
+              Sexo:             
+<INPUT TYPE="RADIO" NAME="sexc" VALUE="F" value="<?= $clientes["sexo"]?>"> Feminino
+<INPUT TYPE="RADIO" NAME="sexc" VALUE="M" value="<?= $clientes["sexo"]?>"> Masculino
               <br><br>
             <?php } ?> 
-                Data de Nascimento:<br> <input type="text" name="dataNc" value="<?= $clientes["aniversario"] ?>"><br>
+              <script>
+       $(document).ready(function() {	
+           	
+            //CARREGA CALENDÁRIO 
+            $('#calendario').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultDate: '2016-01-12',
+                editable: true,
+                eventLimit: true, 
+            });
+                
+    </script>
+    
+    <style>
+        #calendario{
+            position: relative;
+            width: 70%;
+            
+        }        
+    </style>
+    
+</head>
+<body>    
+    <div id='calendario'>          
+                Data de Nascimento: <input type="date" name="dataNc" value="<?= $clientes["aniversario"] ?>">  
+    </div>  
+             
                 E-mail:<br> <input type="text" name="emailc" value="<?= $clientes["email"] ?>"><br>
                 Senha:<br> <input type="text" name="senhac" value="<?= $clientes["senha"] ?>"><br>
                 Tipo de cliente:<br> <input type="text" name="tipoc" value="<?= $clientes["tipo"] ?>"><br><br><br><br>

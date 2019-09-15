@@ -8,4 +8,3 @@ exibir("admin/cadastros");
 
 
 
-//thalia idosa

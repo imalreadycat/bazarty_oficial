@@ -1,7 +1,7 @@
 <?php
 require_once "servico/validacaoServico.php";
 require_once "modelo/clienteModelo.php";
-
+require_once "modelo/enderecoModelo.php";
 function cadastro (){
     if(ehPost()){
         $nome = $_POST['nomec'];
@@ -44,7 +44,7 @@ function cadastro (){
         } else {
             $msg = adicionarCliente($nome,$cpf, $sexo, $aniversario, $email,  $senha, $tipo);
             echo $msg;
-            redirecionar("cliente\listar");    
+            redirecionar("cliente/listar");    
      
         }    
     }else{
@@ -58,6 +58,7 @@ function listar(){
 }
 function ver($cod){
     $dados["clientes"] = MostrarClientePorCodigo($cod);
+    $dados["enderecos"] =  pegarEnderecosPorUsuario($cod);
     exibir('cliente/visualizar', $dados);
 }
 function deletar($idCliente) {
@@ -82,3 +83,5 @@ function editar ($cod){
     }
     
 }
+
+

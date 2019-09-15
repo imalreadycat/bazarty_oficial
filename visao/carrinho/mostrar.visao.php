@@ -1,5 +1,4 @@
-
-        <div class="col-25">
+<div class="col-25">
             <div class="container">
 
               <h4 style="font-size: 30px; color: orange">Meu carrinho<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
@@ -11,6 +10,3 @@
             
             </div>
         </div>
-        
-
-

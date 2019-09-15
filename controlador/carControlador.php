@@ -1,6 +1,5 @@
 <?php
 require_once "modelo/produtoModelo.php";
-
 function mostrar() {
     $total = 0;
     $todos = array();
@@ -24,7 +23,6 @@ function mostrar() {
    //print_r($dados);
     exibir('carrinho/mostrar', $dados);
 }
-
 function remover($id_produto){
     $i = 0;
     $vetor = $_SESSION["carrinho"];

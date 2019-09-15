@@ -1,39 +1,61 @@
-        <h2 style="color: orange; margin-top: 5%;"> Cadastre-se aqui: </h2>
+<h2 style="color: orange; margin-top: 5%;"> Cadastre-se aqui: </h2>
         <hr align="center" width="100%" size="1" color="orange">
   
 <div class="corpinho">
-    <div class="caixinha">
-        <form action="" method="POST">
-            <h3 style="color: orange;">Sobre:</h3>
-            Nome:<br> <input type="text" name="nomec" ><br>
-                CPF:<br> <input type="text" name="cpf" ><br>
-                <br> <br>
-                
-                
-                Sexo: <label> Feminino </label>
-              <input type="radio" name="sexc" value="F">
-              <label> Masculino </label>
-               <input type="radio" name="sexc" value="M">
-              <br><br>
-                
-                Data de Nascimento:<br> <input type="text" name="dataNc"><br>
-                Endereço:<br>
-                            <br><input type="text" name="rua"><br>
-                            <br><input type="text" name="número"><br>
-                            <br><input type="text" name="complemento"><br>
-                            <br><input type="text" name="bairro"><br>
-                            <br><input type="text" name="cidade"><br>
-                            <br><input type="text" name="cep"><br>
-                E-mail:<br> <input type="text" name="emailc"><br>
-                Senha:<br> <input type="text" name="senhac"><br>
-                Tipo de cliente:<br> <input type="text" name="tipoc"><br><br><br><br>
+ <div class="caixinha">
+    <form action="" method="POST">
+        <label for="fname">Nome</label> <br>
+            <input type="text"  name="nomec" placeholder="Thalia Beatriz..."><br><br>
+        <label  for="fname">CPF</label><br>
+             <input type="text"  name="cpf" placeholder="12345678963"><br><br>
+   Sexo:             
+<INPUT TYPE="RADIO" NAME="sexc" VALUE="F"> Feminino
+<INPUT TYPE="RADIO" NAME="sexc" VALUE="M"> Masculino
 
-                <button type="submit">Cadastrar</button>
-                <br><br><br><br>
+               
+    <script>
+       $(document).ready(function() {	
+           	
+            //CARREGA CALENDÁRIO 
+            $('#calendario').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultDate: '2016-01-12',
+                editable: true,
+                eventLimit: true, 
+            });
+                
+    </script>
+    
+    <style>
+        #calendario{
+            position: relative;
+            width: 70%;
+            
+        }        
+    </style>
+    
+</head>
+<body>    
+    <div id='calendario'>          
+                Data de Nascimento: <input type="date" name="dataNc" required/>       
+    </div>  
+        <label  for="fname">Email</label><br>
+             <input type="text"  name="emailc" placeholder="thalia@gmail.com"><br><br>
+        <label  for="fname">Senha</label><br>
+              <input type="text"  name="senhac" placeholder="0000000"><br><br>
+        <label  for="fname">Tipo</label><br>
+                <input type="text"  name="tipoc" placeholder="x"><br><br>
+                
+
+     <br><br> <a style="color: orange" href="./endereco/cadastro/"><button style="color: orange">Cadastrar</button></a>
+                <br><br><br><br>            
                 <a style="color: orange" href="./cliente/listar/">Ver clientes cadastrados</a>
-                
-
-        </form>
+         
+         </form>
         
         
               <?php if(ehPost()){
@@ -45,3 +67,5 @@
    ?>
     </div>
 </div>
+        
+      
