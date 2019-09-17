@@ -48,6 +48,7 @@ create table categoria(
      preco double(10,2) unsigned not null,
      estoque_minimo int (11) not null,
      estoque_maximo int (11) not null,
+     quant_estoque int (11) not null,
      primary key(id_produto),
      foreign key (cod_categoria) references categoria (cod_categoria) on delete cascade on update cascade
      );
