@@ -21,11 +21,11 @@
             </thead>
         <?php foreach ($formasdepagamento as $formadepagamento): ?> 
             <tr>
-                <td><?=$formadepagamento['cod_formadepagamento']?></td>
+                <td><?=$formadepagamento['idformadepagamento']?></td>
                 <td><?=$formadepagamento['descricao']?></td>
-                <td><a href="./formadepagamento/ver/<?=$formadepagamento['cod_formadepagamento']?>">Ver</a></td>
-                <td><a href="./formadepagamento/deletar/<?=$formadepagamento['cod_formadepagamento']?>">Deletar</a></td>
-                <td><a href="./formadepagamento/editar/<?=$formadepagamento['cod_formadepagamento']?>">Editar</a></td>          
+                <td><a href="./formadepagamento/ver/<?=$formadepagamento['idformadepagamento']?>">Ver</a></td>
+                <td><a href="./formadepagamento/deletar/<?=$formadepagamento['idformadepagamento']?>">Deletar</a></td>
+                <td><a href="./formadepagamento/editar/<?=$formadepagamento['idformadepagamento']?>">Editar</a></td>          
              
             </tr>
            

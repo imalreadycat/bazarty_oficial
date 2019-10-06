@@ -3,6 +3,8 @@ require_once "modelo/produtoModelo.php";
 require_once "modelo/categoriaModelo.php";
 require_once "servico/validacaoServico.php";
 require_once "servico/uploadServico.php";
+
+/** anon */
 function index() {
     redirecionar("produto/listar");
 }
@@ -18,6 +20,7 @@ function adicionar() {
         $PreProduto = $_POST["PreProduto"];
         $estoqueMin = $_POST["eMin"];
         $estoqueMax = $_POST["eMax"];
+        $quantidade= $_POST["quantidade"];
         $errors = array();
         
          if (nao_vazio($nome, "nome") != NULL) {
@@ -44,7 +47,7 @@ function adicionar() {
                $dados["categorias"] = seleciona_todas_as_categorias();
                exibir("produtos/formulario", $dados);
            }else{              
-           $msg = adicionarProduto($nome, $CategoriaProduto, $DescriProduto, $imagem, $PreProduto, $estoqueMin, $estoqueMax);
+           $msg = adicionarProduto($nome, $CategoriaProduto, $DescriProduto, $imagem, $PreProduto, $estoqueMin, $estoqueMax, $quantidade);
            echo $msg;
            }
   
@@ -53,19 +56,27 @@ function adicionar() {
         exibir("produtos/formulario",$dados);
     }
 }
+
+/** anon */
 function listar(){
     $dados = array();
     $dados["produtos"] = seleciona_todos_os_produtos();
     exibir('produtos/listar', $dados);
 }
+
+/** anon */
 function ver($cod){
     $dados["produto"] = MostrarProdutoPorCodigo($cod);
     exibir('produtos/visualizar', $dados);
 }
+
+/** Adm */
 function deletar($id) {
     deletarProduto($id);
-    redirecionar("produto/listar");
+    redirecionar("produto/ladm");
+   
 }
+/** Adm */
 function editar ($cod){
     if(ehPost()){
        $nome = $_POST["NomeProduto"];
@@ -75,8 +86,10 @@ function editar ($cod){
         $PreProduto = $_POST["PreProduto"];
         $estoqueMin = $_POST["eMin"];
         $estoqueMax = $_POST["eMax"];
-        EditarProdutoPorCodigo($nome, $CategoriaProduto, $DescriProduto, $imagem, $PreProduto, $estoqueMin, $estoqueMax, $cod);
-       redirecionar("produto/listar");
+        $quantidade= $_POST["quantidade"];
+        
+        EditarProdutoPorCodigo($nome, $CategoriaProduto, $DescriProduto, $imagem, $PreProduto, $estoqueMin, $estoqueMax,$quantidade, $cod);
+       redirecionar("produto/ladm");
     }else{
         $dados["produto"] = MostrarProdutoPorCodigo($cod);
         $dados["categorias"] = seleciona_todas_as_categorias();
@@ -85,6 +98,8 @@ function editar ($cod){
     }
     
 }
+
+/** anon */
 function comprar($idprod){
    // unset($_SESSION["carrinho"]); //p apagar sessão
     if(isset($_SESSION["carrinho"])) {
@@ -96,6 +111,8 @@ function comprar($idprod){
     $_SESSION["carrinho"] = $produtos;
    redirecionar("car/mostrar"); 
 }
+
+/** anon */
 function buscar(){
     if (ehPost()) {
         $nome = $_POST["nome"];
@@ -117,3 +134,10 @@ function buscar(){
     $dados["frase"] = $frase;
     exibir("login/index", $dados);
 }*/
+
+/** Adm */
+function ladm(){
+    $dados = array();
+    $dados["produtos"] = seleciona_todos_os_produtos();
+    exibir('produtos/ladm', $dados);
+}

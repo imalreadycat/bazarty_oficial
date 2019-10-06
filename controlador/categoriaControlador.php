@@ -1,6 +1,7 @@
 <?php
 require_once "modelo/categoriaModelo.php";
 require_once "servico/validacaoServico.php";
+/** Adm */
 function inserir(){
     if (ehPost()) {
        $Nome = $_POST["Nome"];

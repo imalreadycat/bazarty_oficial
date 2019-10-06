@@ -1,3 +1,4 @@
+<?php require_once "./biblioteca/acesso.php"; ?>
 <div id="tudo">
 	<div id="cima" style="height: 10%;">
 		<img style=" width: 15%; padding: 1%; " src="./publico/img/logo/logo.png">
@@ -21,11 +22,18 @@
 	<div id="Menu" style="height: 10%; margin-bottom: 3%; margin-top: 6%;">
 		<div class="navbar">
 		<a  style="padding: 1%; margin: 0% 5%;"class="active" href="./produto/listar/"><i class="home icon"></i> Home</a> 
-		<a style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Roupas</a> 
-		<a style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Acessórios</a> 
+		
+		<a style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> aa</a> 
 		<a  style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Sapatos</a> 
 		<a  style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Outros</a> 
-		<a  style="padding: 1%; margin-right: 2%;" href="login.html"><i class="user circle icon"></i> Login</a>
+                
+                
+		<a  style="padding: 1%; margin-right: 2%;" href="./login/index/"><i class="user circle icon"></i> Login</a>
+                <a style="padding: 1%; margin-right: 4%;" href="./cliente/ver/<?= acessoPegarUsuarioLogado(); ?>"><i class="user circle icon"></i> Minha conta </a>
+                
+  
+                
+                
                 <a  style="padding: 1%; margin-right: 4%;" href="./cliente/cadastro/"><i class="user outline icon"></i> Cadastre-se</a>
   		</div>
 	</div>

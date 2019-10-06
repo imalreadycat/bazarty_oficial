@@ -17,7 +17,10 @@
      justify-content: space-around">
             
             <a style="color: orange" href="./endereco/adicionar/<?= $clientes["id_cliente"] ?>"><button style="color: orange">Cadastrar endereço(s)</button></a><br>
-               <a style="color: orange" href="./endereco/listar/<?= $clientes["id_cliente"] ?>">Ver endereços cadastrados</a>
+            <a style="color: orange" href="./login/logout/"><button style="color: orange">Sair da conta</button></a><br>
+          
+          
+              
             </div>
         
   <?php

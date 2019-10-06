@@ -1,23 +1,4 @@
-<h1 style="color: orange;">Lista de Tarefas</h1>
-
-<form method="POST" action="">
-
-    <?php print_r($lista); ?><br>
-    <form action="" method="POST">
-    Nova tarefa: <br><input type="text" name="nome"><br><br><br><br>
-    <button style="color: orange" type="submit">Cadastrar</button>
-</form>
-
-</form>
-
-
-
-
-
-
-
-
-<h2>Acesse o sistema</h2>
+<h1 style="color: orange;">Acesse o sistema</h1>
 
 <form method="POST" action="">
 

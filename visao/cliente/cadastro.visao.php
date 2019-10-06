@@ -47,13 +47,14 @@
              <input type="text"  name="emailc" placeholder="thalia@gmail.com"><br><br>
         <label  for="fname">Senha</label><br>
               <input type="text"  name="senhac" placeholder="0000000"><br><br>
-        <label  for="fname">Tipo</label><br>
-                <input type="text"  name="tipoc" placeholder="x"><br><br>
+        Tipo:             
+<INPUT TYPE="RADIO" NAME="tipoc" VALUE="Adm"> Administrador
+<INPUT TYPE="RADIO" NAME="tipoc" VALUE="Cli"> Usuário
                 
 
      <br><br> <a style="color: orange" href="./endereco/cadastro/"><button style="color: orange">Cadastrar</button></a>
                 <br><br><br><br>            
-                <a style="color: orange" href="./cliente/listar/">Ver clientes cadastrados</a>
+               
          
          </form>
         

@@ -41,7 +41,7 @@ function deletarUsuario($id) {
 }
 
 function pegarUsuarioPorEmailSenha($email, $senha) {
-    $sql = "SELECT * FROM usuario WHERE email= '$email' and senha = '$senha'";
+    $sql = "SELECT * FROM cliente WHERE email= '$email' and senha = '$senha'";
     $resultado = mysqli_query(conn(), $sql);
     $usuario = mysqli_fetch_assoc($resultado);
     return $usuario;

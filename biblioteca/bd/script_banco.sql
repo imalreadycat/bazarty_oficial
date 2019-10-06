@@ -53,12 +53,27 @@ create table categoria(
      foreign key (cod_categoria) references categoria (cod_categoria) on delete cascade on update cascade
      );
 
+ CREATE TABLE pedido(
+        id_pedido INT(11)  unsigned auto_increment NOT NULL,
+        id_cliente INT(11) unsigned NOT NULL,
+        idendereco INT(11) unsigned NOT NULL,
+        datacompra DATE NOT NULL,
+        PRIMARY KEY(id_pedido),
+        FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (idendereco) REFERENCES endereco (idendereco)
+        ON DELETE CASCADE ON UPDATE CASCADE
+        );
+
+
 create table pedido_produto(
-    idproduto int(11)  unsigned not null auto_increment,
-    idpedido int(11)  not null,
+    id_produto int(11)  unsigned not null auto_increment,
+    id_pedido int(11)  not null,
     quantidade  int(11) not null,
     primary key (idproduto, idpedido)
-);
+foreign key (id_produto) references produto (id_produto) on delete cascade on update cascade,
+foreign key (id_pedido) references pedido (id_pedido) on delete cascade on update cascade
+     );
 CREATE TABLE cupom(
 	idcupom int (11) unsigned not null auto_increment,
 	nomecupom varchar (60) not null,
@@ -84,7 +99,7 @@ create table estoque(
 create table endereco (
 	idendereco int(11) unsigned not null auto_increment,
 	id_cliente int(11) unsigned not null,
-	logradouro varchar (60) not null,
+	rua varchar (60) not null,
 	numero varchar (7) not null,
 	complemento varchar (60) not null,
 	bairro varchar (60) not null,
@@ -92,20 +107,14 @@ create table endereco (
 	cep varchar (60) not null,
 	primary key(idendereco),
 	foreign key (id_cliente) references cliente (id_cliente) on delete cascade on update cascade );
+
+    create table forma_de_pagamento(
+        idformadepagamento int unsigned not null auto_increment,
+        descricao varchar (45) not null,
+        primary key(idformadepagamento)
+    );
         
-        CREATE TABLE pedido(
-        id_pedido INT(11)  unsigned auto_increment NOT NULL,
-        id_cliente INT(11) unsigned NOT NULL,
-        idendereco INT(11) unsigned NOT NULL,
-        datacompra DATE NOT NULL,
-        PRIMARY KEY(id_pedido),
-        FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (idendereco) REFERENCES endereco (idendereco)
-        ON DELETE CASCADE ON UPDATE CASCADE
-        );
-
-
+       
 
 
 

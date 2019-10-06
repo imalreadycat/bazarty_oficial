@@ -29,7 +29,7 @@ function editar($id) {
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         alert(editarUsuario($id, $nome, $email));
-        redirecionar("usuario/index");
+        redirecionar("produto/listar");
     } else {
         $dados["usuario"] = pegarUsuarioPorId($id);
         exibir("usuario/formulario", $dados);

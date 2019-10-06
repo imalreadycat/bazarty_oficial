@@ -53,8 +53,10 @@
              
                 E-mail:<br> <input type="text" name="emailc" value="<?= $clientes["email"] ?>"><br>
                 Senha:<br> <input type="text" name="senhac" value="<?= $clientes["senha"] ?>"><br>
-                Tipo de cliente:<br> <input type="text" name="tipoc" value="<?= $clientes["tipo"] ?>"><br><br><br><br>
-
+               
+        Tipo:             
+<INPUT TYPE="RADIO" NAME="tipoc" VALUE="Adm" value="<?= $clientes["tipo"] ?>"> Administrador
+<INPUT TYPE="RADIO" NAME="tipoc" VALUE="Cli" value="<?= $clientes["tipo"] ?>"> Usuário
                 <button type="submit">Atualizar</button>
                 <br><br><br><br>
                 <a style="color: orange" href="./cliente/listar/">Ver clientes cadastrados</a>

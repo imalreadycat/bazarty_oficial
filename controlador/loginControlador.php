@@ -10,7 +10,7 @@ function index() {
         
         if (acessoLogar($usuario)) {
             alert("bem vindo" . $login);
-            redirecionar("usuario");
+            redirecionar("produto");
         } else {
             alert("usuario ou senha invalidos!");
         }
@@ -22,7 +22,7 @@ function index() {
 function logout() {
     acessoDeslogar();
     alert("deslogado com sucesso!");
-    redirecionar("usuario");
+    redirecionar("produto");
 }
 
 ?>
