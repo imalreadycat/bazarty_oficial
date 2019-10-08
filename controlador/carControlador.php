@@ -1,5 +1,6 @@
 <?php
 require_once "modelo/produtoModelo.php";
+require_once "modelo/cupomModelo.php";
 require_once 'modelo/clienteModelo.php';
 require_once 'modelo/usuarioModelo.php';
 require_once 'modelo/enderecoModelo.php';
@@ -45,13 +46,40 @@ function remover($id_produto){
     redirecionar('car/mostrar');
 }
 
+/** Cli */
 function finalizar(){
+   
+   if(ehPost()){
+       $nome = $_POST["nomec"];
+       $desconto = pegardescontoPorNome($nome);
+       $desconto = $desconto['desconto']/100;
+       echo $desconto;
+       $total = 0;
     
-    if(ehPost()){
-        
+   if(isset($_SESSION["carrinho"])) {
+        $produtos = $_SESSION["carrinho"];
+        foreach ($produtos as $produto):
+            $prod =  MostrarProdutoPorCodigo($produto);
+            $todos[] = $prod;
+            $total += $prod["preco"];
+        endforeach;
+    } else {
+        echo "Carrinho vazio!";
     }
-    
-    $total = 0;
+   
+    $id_cliente = acessoPegarUsuarioLogado();
+   
+    $dados = array();
+   
+   $dados["produto"] = $todos;
+   $dados["total"] = number_format($total - ($total * $desconto),2); 
+   $dados['cliente'] = MostrarClientePorCodigo($id_cliente);
+   $dados['enderecos'] = pegarEnderecosPorUsuario($id_cliente);
+   $dados['formapg'] = pegarTodasFormasDePagamento();
+   
+   exibir('finalizar/finalizar', $dados);
+   }else{
+       $total = 0;
     
    if(isset($_SESSION["carrinho"])) {
         $produtos = $_SESSION["carrinho"];
@@ -70,9 +98,10 @@ function finalizar(){
    $dados["produto"] = $todos;
    $dados["total"] = $total; 
    $dados['cliente'] = MostrarClientePorCodigo($id_cliente);
-   $dados['endereco'] = pegarEnderecosPorUsuario($id_cliente);
+   $dados['enderecos'] = pegarEnderecosPorUsuario($id_cliente);
    $dados['formapg'] = pegarTodasFormasDePagamento();
    
    exibir('finalizar/finalizar', $dados);
+   }
    
 }

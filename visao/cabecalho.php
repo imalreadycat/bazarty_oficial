@@ -28,7 +28,7 @@
 		<a  style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Outros</a> 
                 
                 
-		<a  style="padding: 1%; margin-right: 2%;" href="./login/index/"><i class="user circle icon"></i> Login</a>
+		<a  style="padding: 1%; margin-right: 2%;" href="./login/"><i class="user circle icon"></i> Login</a>
                 <a style="padding: 1%; margin-right: 4%;" href="./cliente/ver/<?= acessoPegarUsuarioLogado(); ?>"><i class="user circle icon"></i> Minha conta </a>
                 
   

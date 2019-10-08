@@ -35,3 +35,10 @@ function editarCupom($nome,$desconto,$idcupom){
      if(!$resultado){ die('Erro ao editar cupom!' . mysqli_error($conexao)); }
     return 'Cupom alterada com sucesso!';
 }
+
+function pegardescontoPorNome($nome){
+    $sql = "SELECT desconto FROM cupom WHERE upper(nomecupom) like upper('%".$nome."%')";
+    $resultado = mysqli_query(conn(), $sql);
+    $cupom = mysqli_fetch_assoc($resultado);
+    return $cupom;
+}

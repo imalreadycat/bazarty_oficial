@@ -67,10 +67,10 @@ create table categoria(
 
 
 create table pedido_produto(
-    id_produto int(11)  unsigned not null auto_increment,
+    id_produto int(11)  unsigned not null,
     id_pedido int(11)  not null,
     quantidade  int(11) not null,
-    primary key (idproduto, idpedido)
+    primary key (id_produto, id_pedido),
 foreign key (id_produto) references produto (id_produto) on delete cascade on update cascade,
 foreign key (id_pedido) references pedido (id_pedido) on delete cascade on update cascade
      );

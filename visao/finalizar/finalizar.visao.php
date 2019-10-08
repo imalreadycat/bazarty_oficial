@@ -1,14 +1,14 @@
 <div class="col-25">
-            <div class="container">
+    <div class="container">
 
               <h2 style="color: orange; margin-top: 5%;"> Verifique seus dados</h2>
         <hr align="center" width="100%" size="1" color="orange">
-              <?php foreach ($produto as $prod): ?>
-              <p><a href="./produto/ver/<?= $prod["id_produto"] ?>" style="color: orange; font-size: 18px;"> <?= $prod["nome"] ?></a><span class="price">$<?= $prod["preco"] ?><a href="./car/remover/<?= $prod["id_produto"] ?>"> Remover</a></span></p>
+              <?php  foreach ($produto as $prod): ?>
+              <p><a href="./produto/ver/<?= $prod["id_produto"] ?>" style="color: orange; font-size: 18px;"> <?= $prod["nome"] ?></a><span class="price">$<?= $prod["preco"] ?></span></p>
               <?php endforeach; ?>
               <hr>
               <p>Total <span class="price" style="color:black"><b>R$ <?= $total ?></b></span></p>
-            </div>
+    </div>
 </div>
 <div class="col-25">
             <div class="container">
@@ -19,7 +19,7 @@
        
        
 		
-		<?php foreach ($endereco as $endereco): ?>
+		<?php foreach ($enderecos as $endereco): ?>
        
 
                             
@@ -27,7 +27,7 @@
 				Número:<?=$endereco['numero']?><br>
 				Complemento:<?=$endereco['complemento']?><br>
 				Bairro:<?=$endereco['bairro']?><br>
-				Cidade<?=$endereco['cidade']?><br>
+				Cidade: <?=$endereco['cidade']?><br>
 				Cep:<?=$endereco['cep']?><br>
                                  
                                                      
@@ -39,25 +39,22 @@
   </div>
   <div class="ui segment">
     <h2 style="color: orange; margin-top: 5%;"> Possui cupom ou vale?</h2>
-   
+<form action="" method="POST">   
         <hr align="center" width="100%" size="1" color="orange">
          <h6> Informe aqui: </h6>
 <div class="ui form">
   <div class="field">
-    <label></label>
-    <input type="text">
+    <input type="text"  name="nomec">
+
   </div> 
 </div>
          <br><br>
          
-<button class="ui secondary button">
+<button class="ui secondary button" type="submit">
   Aplicar
 </button>
-<button class="ui button">
-  Cancelar
-</button>
   </div>
- 
+</form> 
 </div>
         </div>
 </div>
@@ -80,9 +77,8 @@
    <div style="padding: 7% "> <i class="warehouse icon"></i> </div>  
   </div>
     </div><br><br>
-    <p> Sua compra tem um Total de <span class="price" style="color:black"><b>R$ <?= $total ?></b></span></p>
     
-                  <a href="./car/finalizar"><input style="background-color: orange; width: 8%; " type="submit" value="Pagar" class="btn"></a>
+                  <a href="./car/finalizar"><input style="background-color: orange; width: 8%; " type="submit" value="Comprar" class="btn"></a>
 
          
 </div>
