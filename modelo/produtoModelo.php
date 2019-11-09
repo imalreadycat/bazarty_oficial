@@ -57,3 +57,12 @@ function MostrarProdutoPorNome($nome){
     return $produtos;
 }
 
+function seleciona_todos_enderecos(){
+    $sql = "select * from endereco";
+    $result = mysqli_query(conn(), $sql);
+    $enderecos = array();
+    while($linha = mysqli_fetch_assoc($result)){
+        $enderecos[] = $linha;
+    }
+    return $enderecos;
+}

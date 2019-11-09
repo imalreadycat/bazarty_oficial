@@ -47,4 +47,7 @@ function EditarClientePorCodigo($nome, $cpf,$sexo, $aniversario, $email,  $senha
     if (!$resultado){die ('Erro ao atualizar os dados do cliente'. mysqli_error($cnx)); }
 return 'Dados atualizados com sucesso!'; 
 }
+
+
  ?>
+

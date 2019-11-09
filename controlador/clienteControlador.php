@@ -2,6 +2,8 @@
 require_once "servico/validacaoServico.php";
 require_once "modelo/clienteModelo.php";
 require_once "modelo/enderecoModelo.php";
+require_once "modelo/finalizaModelo.php";
+require_once "./biblioteca/acesso.php";
 
 
 /** anon */
@@ -91,4 +93,9 @@ function editar ($cod){
     
 }
 
+function MeuPedido(){
+  $id_cliente=acessoPegarUsuarioLogado();
+  $dados["pedidos"]=PedidosDoCliente($id_cliente);   
+  exibir('cliente/pedidos', $dados);
 
+}

@@ -8,7 +8,7 @@
               <hr>
               <p>Total <span class="price" style="color:black"><b>R$ <?= $total ?></b></span></p>
               <br><br><br>
-              <a href="./car/finalizar"><input style="background-color: orange; float: right; width: 30%;" type="submit" value="Finalizar compra" class="btn"></a>
+              <a href="./car/finalizar/<?=$total?>"><input style="background-color: orange; float: right; width: 30%;" type="submit" value="Finalizar compra" class="btn"></a>
             
             </div>
         </div>

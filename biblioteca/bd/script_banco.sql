@@ -56,12 +56,15 @@ create table categoria(
  CREATE TABLE pedido(
         id_pedido INT(11)  unsigned auto_increment NOT NULL,
         id_cliente INT(11) unsigned NOT NULL,
-        idendereco INT(11) unsigned NOT NULL,
+        idformadepagamento INT(11) unsigned NOT NULL,
+        idendereco int(11) unsigned not null,
         datacompra DATE NOT NULL,
         PRIMARY KEY(id_pedido),
         FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
         ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (idendereco) REFERENCES endereco (idendereco)
+        FOREIGN KEY (idformadepagamento) REFERENCES forma_de_pegamento (idformadepagamento)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+       FOREIGN KEY (idendereco) REFERENCES endeeco (idendereco)
         ON DELETE CASCADE ON UPDATE CASCADE
         );
 
@@ -114,7 +117,64 @@ create table endereco (
         primary key(idformadepagamento)
     );
         
-       
+--CRIAÇÃO DAS PROCIDURE
 
+-- INSERT DO PEDIDO
+
+DROP PROCEDURE IF EXISTS cadastrar_pedido ;
+DELIMITER $$
+
+CREATE PROCEDURE cadastrar_pedido(IN  id_cliente INT(11),  idformadepagamento INT(11), idendereco int(11), total double)
+BEGIN
+declare datav date;
+IF(id_cliente != 0)AND( idformadepagamento != 0) and  (idendereco != 0) and (total != 0) THEN
+SET datav = CURDATE();
+INSERT INTO pedido (id_cliente,  idformadepagamento, idendereco, datacompra, total)  VALUES(id_cliente, idformadepagamento, idendereco, datav, total);
+ELSE
+SELECT "Informe valores válidos" AS Msg;
+END IF;
+END $$ 
+DELIMITER ;
+
+--INSERIR PEDIDOS DO CLIENTE
+
+DROP PROCEDURE IF EXISTS mostrar_pedidos_do_cliente ;
+DELIMITER $$
+
+CREATE PROCEDURE mostrar_pedidos_do_cliente(IN  id_cliente INT(11))
+BEGIN
+IF(id_cliente != 0) THEN
+SELECT * FROM pedido WHERE id_cliente = id_cliente ;
+ELSE
+SELECT "Informe valores válidos" AS Msg;
+END IF;
+END $$ 
+DELIMITER ;
+
+-- TRIGGERS
+--PEDIDO PRODUTO
+
+DROP TRIGGER IF EXISTS tgr_diminuiestoque;
+DELIMITER $$
+CREATE TRIGGER tgr_diminuiestoque
+AFTER INSERT ON pedido_produto
+FOR EACH ROW
+BEGIN
+update produto set produto.quant_estoque = produto.quant_estoque- New.quantidade
+where produto.id_produto = new.id_produto;
+END $$
+DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS tgr_restauraestoque;
+DELIMITER $$
+CREATE TRIGGER tgr_restauraestoque
+AFTER DELETE ON pedido_produto
+FOR EACH ROW
+BEGIN
+update produto set produto.quant_estoque = produto.quant_estoque+ Old.quantidade
+where produto.id_produto = Old.id_produto;
+END $$
+DELIMITER ;
 
 
