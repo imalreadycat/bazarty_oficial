@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="./publico/css/semantic.min.css">
-        <link rel="stylesheet" href="./publico/css/semantic.js.url">       
+        <link rel="stylesheet" href="./publico/css/semantic.js">       
         <link rel="stylesheet" href="./publico/css/semantic.min.css.url">
         <link rel="stylesheet" type="text/css" href="semantic.min.js.url">
 	<link rel="stylesheet" type="text/css" href="index.css">

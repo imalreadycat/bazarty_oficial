@@ -35,6 +35,7 @@ function mostrar() {
 
 /** anon */
 function remover($id_produto){
+   // unset ($_SESSION["carrinho"]);
     $i = 0;
     $vetor = $_SESSION["carrinho"];
     print_r($_SESSION["carrinho"]);

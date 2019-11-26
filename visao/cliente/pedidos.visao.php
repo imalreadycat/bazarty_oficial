@@ -2,11 +2,13 @@
         <hr align="center" width="100%" size="1" color="orange">
   
             <div class="caixinha">
-                <table class="table">
+               
+            
+                <table class="table">                    
                     <thead>
                         <tr>
-                            <th style="color: orange"> Data da compra </th>
-                            <th style="color: orange">  Total  </th>
+                            <th> Data da compra </th>
+                            <th>  Total  </th>
                         </tr>
                     </thead>
                     <?php foreach ($pedidos as $pedido):?>
@@ -20,4 +22,8 @@
 
                     <?php endforeach;?>
                 </table>
+      
             </div>
+         <hr align="center" width="100%" size="1" color="orange">
+         <h4 style="color: orange; margin-top: 5%; font-weight:bolder; text-align: center"> Agradecemos a preferência S2</h4>
+       

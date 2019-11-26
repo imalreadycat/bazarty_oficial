@@ -66,3 +66,27 @@ function seleciona_todos_enderecos(){
     }
     return $enderecos;
 }
+
+function seleciona_produto_e_estoque(){
+    $sql = "select nome, quant_estoque from produto";
+    $result = mysqli_query(conn(), $sql);
+    $produtos = array();
+    while($linha = mysqli_fetch_assoc($result)){
+        $produtos[] = $linha;
+    }
+    return $produtos;
+}
+ 
+function seleciona_produto_e_categoria(){
+    $sql = " select produto.nome, categoria.nome as categ from produto
+               inner join categoria
+                on categoria.cod_categoria = produto.cod_categoria
+                order by categoria.nome";
+    $result = mysqli_query(conn(), $sql);
+    $produtos = array();
+    while($linha = mysqli_fetch_assoc($result)){
+        $produtos[] = $linha;
+    }
+    return $produtos;
+}
+

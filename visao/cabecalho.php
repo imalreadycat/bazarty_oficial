@@ -6,7 +6,7 @@
                     <form action="./produto/buscar" method="Post">
                         <div class="ui search">
                         <div class="ui icon input">
-                         <input name="nome" class="prompt" type="text" placeholder="Pesquisar">
+                         <input name="nome" class="prompt" type="text" placeholder="Pesquisa+r">
                          <i class="search icon"></i>
                         </div>
                             <div class="results">
@@ -21,20 +21,25 @@
 
 	<div id="Menu" style="height: 10%; margin-bottom: 3%; margin-top: 6%;">
 		<div class="navbar">
-		<a  style="padding: 1%; margin: 0% 5%;"class="active" href="./produto/listar/"><i class="home icon"></i> Home</a> 
-		
-		<a style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> aa</a> 
-		<a  style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Sapatos</a> 
-		<a  style="padding: 1%; margin-right: 4%;" href="#"><i class="shopping bag icon"></i> Outros</a> 
+		<a  style="padding: 1%; margin: 0% 12%;"class="active" href="./produto/listar/"><i class="home icon"></i> Home</a>                 
+		<a  style="padding: 1%; margin-right: 12%;" href="./login/"><i class="user circle icon"></i> Login</a>
+                <a style="padding: 1%; margin-right: 12%;" href="./cliente/ver/<?= acessoPegarUsuarioLogado(); ?>"><i class="user circle icon"></i> Minha conta </a> 
+                <a  style="padding: 1%; margin-right: 12%;" href="./cliente/cadastro/"><i class="user outline icon"></i> Cadastre-se</a>
                 
-                
-		<a  style="padding: 1%; margin-right: 2%;" href="./login/"><i class="user circle icon"></i> Login</a>
-                <a style="padding: 1%; margin-right: 4%;" href="./cliente/ver/<?= acessoPegarUsuarioLogado(); ?>"><i class="user circle icon"></i> Minha conta </a>
-                
-  
-                
-                
-                <a  style="padding: 1%; margin-right: 4%;" href="./cliente/cadastro/"><i class="user outline icon"></i> Cadastre-se</a>
+               
+           
   		</div>
 	</div>
+    
+    <div class="ui vertical menu">
+  <div class="ui dropdown item">
+    Categorias
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item">aaa</a>
+      <a class="item">Automotive</a>
+      <a class="item">Home</a>
+    </div>
+  </div>
+</div>
 </div>

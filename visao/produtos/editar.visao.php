@@ -16,7 +16,7 @@
             Imagem: <br><input type="img" name="imagem" value="<?= $produto["imagem"] ?>"><br><br>
             Estoque mínimo:<br> <input type="number" name="eMin" value="<?= $produto["estoque_minimo"] ?>"><br><br>
             Estoque máximo:<br> <input type="number" name="eMax" value="<?= $produto["estoque_maximo"] ?>"><br><br>
-             Quantidade em estoque: <br> <input type="number" name="quantidade" value="<?= $produto[" quant_estoque"] ?>"> <br><br><br><br>
+             Quantidade em estoque: <br> <input type="number" name="quantidade" value="<?= $produto["quant_estoque"] ?>"> <br><br><br><br>
             <button style="color: orange" type="submit">Atualizar</button>
             <br> <br>
         

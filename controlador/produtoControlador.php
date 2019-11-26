@@ -141,3 +141,13 @@ function ladm(){
     $dados["produtos"] = seleciona_todos_os_produtos();
     exibir('produtos/ladm', $dados);
 }
+
+function produto_estoque(){
+    $dados["produtos"]= seleciona_produto_e_estoque();  
+    exibir('admin/prodestoque', $dados);
+}
+function produto_e_categoria(){
+     $dados["produtos"]= seleciona_produto_e_categoria();  
+     exibir('admin/procat', $dados);
+}
+
