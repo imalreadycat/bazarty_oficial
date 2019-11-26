@@ -31,15 +31,5 @@
   		</div>
 	</div>
     
-    <div class="ui vertical menu">
-  <div class="ui dropdown item">
-    Categorias
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <a class="item">aaa</a>
-      <a class="item">Automotive</a>
-      <a class="item">Home</a>
-    </div>
-  </div>
-</div>
+   
 </div>
